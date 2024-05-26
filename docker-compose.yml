@@ -1,0 +1,12 @@
+services:
+  react-app:
+    build: 
+      context: ./
+      dockerfile: Dockerfile-react-app
+    volumes:
+      - ./packages/hq-dashboard:/app/packages/react-app
+      - /app/packages/react-app/node_modules
+    ports:
+      - 3000:80
+    env_file:
+      - ./packages/react-app/.env

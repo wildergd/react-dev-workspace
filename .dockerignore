@@ -1,0 +1,9 @@
+coverage
+lib
+build
+node_modules
+.dockerignore
+Dockerfile
+.eslintignore
+.eslintrc
+.jest.config.js

@@ -1,0 +1,28 @@
+FROM node:18 as build
+
+WORKDIR /app
+
+COPY package.json ./
+COPY lerna.json ./
+COPY yarn.lock ./
+
+COPY packages/react-app/package.json ./packages/react-app/package.json
+COPY packages/react-app/tsconfig.json ./packages/react-app/tsconfig.json
+COPY packages/react-app/src ./packages/react-app/src
+COPY packages/react-app/public ./packages/react-app/public
+
+COPY packages/react-components/package.json ./packages/react-components/package.json
+COPY packages/react-components/tsconfig.json ./packages/react-components/tsconfig.json
+COPY packages/react-components/src ./packages/react-components/src
+
+
+RUN yarn install --frozen-lockfile
+RUN yarn lerna run build
+
+FROM nginx:alpine
+
+COPY --from=build /app/packages/react-app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
