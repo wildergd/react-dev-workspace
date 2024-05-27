@@ -1,11 +1,13 @@
 {
-  "name": "react-components",
+  "name": "@namespace/react-components",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "main": "lib/index.js",
+  "main": "./dist/namespace-react-components.umd.cjs",
+  "module": "./dist/namespace-react-components.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "vite build && tsc",
     "build:storybook": "yarn build:tailwindscss && storybook build",
     "build:tailwindcss": "tailwindcss -i global.css -o docs/global.css",
     "lint": "yarn lint:ts",
@@ -14,13 +16,6 @@
     "storybook": "yarn build:tailwindcss && storybook dev -p 6006 --no-open",
     "test": "jest ./src --verbose --coverage"
   },
-  "files": [
-    "lib"
-  ],
-  "exports": {
-    ".": "./lib/index.js"
-  },
-  "types": "lib/index.d.ts",
   "dependencies": {
     "@headlessui/react": "^2.0.4",
     "@heroicons/react": "^2.1.3",
