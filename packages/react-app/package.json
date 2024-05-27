@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc",
-    "lint": "yarn lint:js && yarn lint:styles",
+    "lint": "yarn lint:ts && yarn lint:styles",
     "lint:ts": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:styles": "stylelint './src/**/*.tsx'",
+    "lint:styles": "stylelint './src/**/*.{css, tsx}'",
     "test": "jest ./src --verbose --coverage --ci --runInBand --coverage --passWithNoTests",
     "start": "vite preview"
   },
