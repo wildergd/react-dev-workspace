@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 
 const isExternal = (id: string) => !id.startsWith('.') && !path.isAbsolute(id);
 
-export const getBaseConfig = ({ plugins = [], lib, outDir = 'dist' }: any) =>
+export const getBaseConfig = ({ plugins = [], lib, outDir = 'dist', css }: any) =>
   defineConfig({
     plugins: [react(), ...plugins],
     build: {
@@ -19,4 +19,5 @@ export const getBaseConfig = ({ plugins = [], lib, outDir = 'dist' }: any) =>
         },
       },
     },
+    css,
   });

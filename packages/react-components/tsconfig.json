@@ -1,9 +1,13 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    // "target": "ES2016",
+    // "module": "CommonJS",
+    // "forceConsistentCasingInFileNames": true,
     "rootDir": "./src",
-    "outDir": "./lib",
-    "declarationDir": "./lib"
+    "outDir": "./dist",
+    "declarationDir": "./dist/types"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.spec.tsx"]
 }
